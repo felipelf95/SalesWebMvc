@@ -112,7 +112,7 @@ namespace SalesWebMvc.Models
         {
             if (!ModelState.IsValid)
             {
-                var Departments = await _departmentService.FindAllAsync();
+                var departments = await _departmentService.FindAllAsync();
                 var viewModel = new SellerFormViewModel { Seller = seller, Departments = departments };
                 return View(viewModel);
             }
@@ -128,7 +128,7 @@ namespace SalesWebMvc.Models
             }
             catch (ApplicationException e)
             {
-                return RedirectToAction(nameof(Error), new { message = "Id not provided" });
+                return RedirectToAction(nameof(Error), new { message = e.Message });
             }
             
         }

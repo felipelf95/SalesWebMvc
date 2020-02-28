@@ -23,10 +23,10 @@ namespace SalesWebMvc.Services
             return await _context.Seller.ToListAsync();
         }
 
-        public async Task InsertAsync(Seller obj)
+        public async Task InsertAsync (Seller obj)
         {
             _context.Add(obj);
-            _context.SaveChangesAsync();
+           await _context.SaveChangesAsync();
         }
 
         public async Task <Seller> FindByIdAsync(int id)
