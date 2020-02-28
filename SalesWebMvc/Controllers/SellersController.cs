@@ -129,7 +129,7 @@ namespace SalesWebMvc.Models
             catch (ApplicationException e)
             {
                 return RedirectToAction(nameof(Error), new { message = e.Message });
-            }
+            }    
             
         }
 
